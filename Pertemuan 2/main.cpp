@@ -1,3 +1,9 @@
+/*
+    Nama      : Gagah Syuja Saka Abdullah
+    NIM       : A11.2022.14259
+    KELOMPOK  : A11.4207
+*/
+
 #include <iostream>
 
 using namespace std;
