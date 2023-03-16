@@ -13,24 +13,37 @@ int kurang(int a, int b);
 int kali(int a, int b);
 int total(int arr[], int index);
 float rata(int arr[], int index);
+void inputArray(int arr[], int index);
 void output(int arr[], int index);
 
 int main()
 {
-    int a = 8;
-    int b = 5;
-    int n = 5;
-    int ray[n] = {1, 3, 5, 7, 8};
+    int a;
+    int b;
+    int n;
 
-    cout << "Pertambahan " << a << " dengan "<< b << " = " << tambah(a, b) << endl;
-    cout << "Pengurangan " << a << " dengan "<< b << " = " << kurang(a, b) << endl;
-    cout << "Perkalian " << a << " dengan "<< b << " = " << kali(a, b) << endl;
+    cout << "Masukkan bilangan pertama : ";
+    cin >> a;
+    cout << "Masukkan bilangan kedua : ";
+    cin >> b;
+    cout << "Masukkan jumlah array : ";
+    cin >> n;
+
+    int ray[n];
+    cout << "Masukkan anggota array (dipisahkan dengan spasi) : ";
+    inputArray(ray, n);
+
+    cout << endl;
+
+    cout << a << " + "<< b << " = " << tambah(a, b) << endl;
+    cout << a << " - "<< b << " = " << kurang(a, b) << endl;
+    cout << a << " x "<< b << " = " << kali(a, b) << endl;
     cout << "Total dari {";
     output(ray, n);
-    cout << "} = " << total(ray, 5) << endl;
+    cout << "} = " << total(ray, n) << endl;
     cout << "Rata-rata dari {";
     output(ray, n);
-    cout << "} = " << rata(ray, 5) << endl;
+    cout << "} = " << rata(ray, n) << endl;
 
     return 0;
 }
@@ -72,6 +85,14 @@ float rata(int arr[], int index)
     }
 
     return temp / index;
+}
+
+void inputArray(int arr[], int index)
+{
+    for (int i = 0; i < index; i++)
+    {
+        cin >> arr[i];
+    }
 }
 
 void output(int arr[], int index)
