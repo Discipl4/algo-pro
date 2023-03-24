@@ -17,17 +17,37 @@ void inputTwo(int &a, int &b);
 void inputArr(int arr[], int &len);
 void select(int choice, int x, int a, int b, int arr[], int len);
 void space();
+void clear();
 
 int main()
 {
+    bool exec = true;
+    char omt;
     int x, a, b, choice, len = 0;
     int arr[len];
 
-    title();
-    cout << "Your choice : ";
-    cin >> choice;
-    space();
-    select(choice, x, a, b, arr, len);
+    while (exec == true)
+    {
+        title();
+        cout << "Your choice : ";
+        cin >> choice;
+        space();
+        select(choice, x, a, b, arr, len);
+        cout << "One more time ( y | n ) ? ";
+        cin >> omt;
+
+        switch (omt)
+        {
+            case 'y':
+                exec = true;
+                clear();
+                break;
+                
+            case 'n':
+                exec = false;
+                break;
+        }
+    }
 
     return 0;
 }
@@ -307,3 +327,15 @@ void space()
 {
     cout << "#####################################" << endl;
 }
+
+void clear()
+{
+    #if __linux__
+        system("clear");
+
+    #elif _WIN32
+        system("cls");
+
+    #endif
+}
+
