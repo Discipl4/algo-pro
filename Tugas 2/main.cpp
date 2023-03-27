@@ -2,6 +2,7 @@
 
 using namespace std;
 
+// ESSENTIAL FUNCTION
 bool isEven (int x);
 bool isOdd (int x);
 bool isFactor (int a, int b);
@@ -11,6 +12,8 @@ int maxArray (int arr[], int len);
 int minArray (int arr[], int len);
 bool isFound (int x, int arr[], int len);
 void swapN (int &a, int &b);
+
+// NOT SO IMPORTANT 
 void title();
 void inputOne(int &x);
 void inputTwo(int &a, int &b);
@@ -172,15 +175,15 @@ void title()
     cout << "             Pertemuan 4             " << endl;
     cout << "#####################################" << endl;
 
-    cout << "(1) Is it even" << endl;
-    cout << "(2) Is it odd" << endl;
-    cout << "(3) Is <num> a factor of <num>" << endl;
-    cout << "(4) Is <num> bigger than <num>" << endl;
-    cout << "(5) Is <num smaller than <num>" << endl;
-    cout << "(6) Largest in <array> " << endl;
-    cout << "(7) Smallest in <array> " << endl;
-    cout << "(8) Is there a <num> in <array>" << endl;
-    cout << "(9) Swap <num> with <num>" << endl;
+    cout << "(1) Is <num> even ?" << endl;
+    cout << "(2) Is <num> odd ?" << endl;
+    cout << "(3) Is <num> a factor of <num> ?" << endl;
+    cout << "(4) Is <num> greater than <num> ?" << endl;
+    cout << "(5) Is <num less than <num> ?" << endl;
+    cout << "(6) Largest in <array> ?" << endl;
+    cout << "(7) Smallest in <array> ?" << endl;
+    cout << "(8) Is there a <num> in <array> ?" << endl;
+    cout << "(9) Swap <num> with <num> ?" << endl;
     cout << "#####################################" << endl;
 }
 
@@ -218,11 +221,11 @@ void select(int choice, int x, int a, int b, int arr[], int len)
             space();
             if (isEven(x) == true)
             {
-                cout << x << " is an even number";
+                cout << "Yes, " << x << " is an even number";
             }
             else
             {
-                cout << x << " is not an even number";
+                cout << "No, " << x << " is not an even number";
             }
             cout << endl;
             space();
@@ -233,11 +236,11 @@ void select(int choice, int x, int a, int b, int arr[], int len)
             space();
             if (isOdd(x) == true)
             {
-                cout << x << " is an odd number";
+                cout << "Yes, " << x << " is an odd number";
             }
             else
             {
-                cout << x << " is not an odd number";
+                cout << "No, " << x << " is not an odd number";
             }
             cout << endl;
             space();
@@ -248,11 +251,11 @@ void select(int choice, int x, int a, int b, int arr[], int len)
             space();
             if (isFactor(a, b) == true)
             {
-                cout << a << " is a factor of " << b;
+                cout << "Yes, " << a << " is a factor of " << b;
             }
             else
             {
-                cout << a << " is not a factor of " << b;
+                cout << "No, " << a << " is not a factor of " << b;
             }
             cout << endl;
             space();
@@ -261,28 +264,28 @@ void select(int choice, int x, int a, int b, int arr[], int len)
         case 4:
             inputTwo(a, b);
             space();
-            cout << maxN(a, b) << " is larger" << endl;
+            cout << maxN(a, b) << " is greater than " << minN(a, b) << endl;
             space();
             break;
 
         case 5:
             inputTwo(a, b);
             space();
-            cout << minN(a, b) << " is smaller" << endl;
+            cout << minN(a, b) << " is less than " << maxN(a, b) << endl;
             space();
             break;
 
         case 6:
             inputArr(arr, len);
             space();
-            cout << maxArray(arr, len) << " is the largest inside the array" << endl;
+            cout << maxArray(arr, len) << " is the largest number in the array" << endl;
             space();
             break;
 
         case 7:
             inputArr(arr, len);
             space();
-            cout << minArray(arr, len) << " is the smallest inside the array" << endl;
+            cout << minArray(arr, len) << " is the smallest number in the array" << endl;
             space();
             break;
 
@@ -293,11 +296,11 @@ void select(int choice, int x, int a, int b, int arr[], int len)
             space();
             if (isFound(x, arr, len) == true)
             {
-                cout << x << " found";
+                cout << x << " found in the array";
             }
             else
             {
-                cout << x << " not found";
+                cout << x << " not found in the array";
             }
             cout << endl;
             space();
