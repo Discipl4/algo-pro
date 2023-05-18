@@ -1,3 +1,14 @@
+/*
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+    Nama      : Gagah Syuja Saka Abdullah
+    NIM       : A11.2022.14259
+    Kelompok  : A11.4207
+
+    @@@@@@@@@@@@@@ TUGAS 2 @@@@@@@@@@@@@@
+
+*/
+
 #include <iostream>
 
 using namespace std;
@@ -45,8 +56,17 @@ int main()
                 exec = true;
                 clear();
                 break;
+
+            case 'Y':
+                exec = true;
+                clear();
+                break;
                 
             case 'n':
+                exec = false;
+                break;
+
+            case 'N':
                 exec = false;
                 break;
         }
@@ -206,6 +226,7 @@ void inputArr(int arr[], int &len)
     cout << "Enter the number of element : \n> ";
     cin >> len;
     cout << "Enter the value separated by space :\n> ";
+
     for (int i = 0; i < len; i++)
     {
         cin >> arr[i];
