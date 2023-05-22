@@ -1,8 +1,20 @@
+/*
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+    Nama      : Gagah Syuja Saka Abdullah
+    NIM       : A11.2022.14259
+    Kelompok  : A11.4207
+
+    @@@@@@@@@@@@ PERTEMUAN 8 @@@@@@@@@@@@
+*/
+
 #include <iostream>
 
 using namespace std;
 
 void title();
+void space();
+void clear();
 int penjumlahan(int num);
 int pengurangan(int num);
 int perkalian(int num);
@@ -10,16 +22,47 @@ int pembagian(int num);
 int pangkat(int base, int expo);
 int faktorial(int num);
 int fibonacci(int num);
+void fibonacciDetailed(int num);
 void choice(int num);
 
 int main()
 {
     int num;
+    char omt;
+    bool exec = true;
 
-    title();
-    cout << "Your choice : ";
-    cin >> num;
-    choice(num);
+    while (exec)
+    {
+        title();
+        cout << "Your choice : ";
+        cin >> num;
+        space();
+        choice(num);
+        space();
+        cout << "One more time ( y | n ) ? ";
+        cin >> omt;
+
+        switch (omt)
+        {
+            case 'y':
+                exec = true;
+                clear();
+                break;
+
+            case 'Y':
+                exec = true;
+                clear();
+                break;
+
+            case 'n':
+                exec = false;
+                break;
+
+            case 'N':
+                exec = false;
+                break;
+        }
+    }
 
     return 0;
 }
@@ -38,6 +81,22 @@ void title()
     cout << "(6) Faktorial" << endl;
     cout << "(7) Pangkat?" << endl;
     cout << "#####################################" << endl;
+}
+
+void space()
+{
+    cout << "#####################################" << endl;
+}
+
+void clear()
+{
+    #if __linux__
+        system("clear");
+
+    #elif _WIN32
+        system("cls");
+
+    #endif
 }
 
 void input(int &num)
@@ -120,7 +179,7 @@ int faktorial(int num)
 {
     if (num > 1)
     {
-        return num + faktorial(num - 1);
+        return num * faktorial(num - 1);
     }
 
     else
@@ -135,6 +194,44 @@ int fibonacci(int num)
     {
         return fibonacci(num - 1) + fibonacci(num - 2);
     }
+
+    else if (num == 1)
+    {
+        return 1;
+    }
+
+    else
+    {
+        return 0;
+    }
+}
+
+void fibonacciDetailed(int num)
+{
+    int result;
+    int first = 1;
+    int second = 0;
+
+    for (int i = 0; i < num; i++)
+    {
+        result = first + second;
+        first = second;
+        second = result;
+
+        if (i == num - 1)
+        {
+            cout << "(";
+        }
+
+        cout << result;
+
+        if (i != num - 1)
+        {
+            cout << " + ";
+        }
+    }
+    
+    cout << ")" << endl;
 }
 
 void choice(int num)
@@ -143,41 +240,45 @@ void choice(int num)
     {
         case 1:
             input(num);
-            cout << penjumlahan(num) << endl;
+            cout << "Penjumlahan " << num << " = " << penjumlahan(num) << endl;
             break;
 
         case 2:
             input(num);
-            cout << pengurangan(num) << endl;
+            cout << "Pengurangan " << num << " = " << pengurangan(num) << endl;
             break;
 
         case 3:
             input(num);
-            cout << perkalian(num) << endl;
+            cout << "Perkalian " << num << " = " << perkalian(num) << endl;
             break;
 
         case 4:
             input(num);
-            cout << pembagian(num) << endl;
+            cout << "Pembagian " << num << " = " << pembagian(num) << endl;
             break;
 
         case 5:
             input(num);
-            cout << fibonacci(num) << endl;
+            cout << "F" << num << " = ";
+
+            fibonacciDetailed(num);
+
+            cout << "F" << num << " = " << fibonacci(num) << endl;
             break;
 
         case 6:
             input(num);
-            cout << faktorial(num) << endl;
+            cout << num << "! = " << faktorial(num) << endl;
             break;
 
         case 7:
             int base, expo;
             cout << "Base : ";
             cin >> base;
-            cout << "Expo : ";
+            cout << "Exponent : ";
             cin >> expo;
-            cout << pangkat(base, expo) << endl;
+            cout << base << "^" << expo << " = " << pangkat(base, expo) << endl;
             break;
     }
 }
