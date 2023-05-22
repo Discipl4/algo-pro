@@ -70,7 +70,7 @@ int main()
 void title()
 {
     cout << "#####################################" << endl;
-    cout << "             Pertemuan 4             " << endl;
+    cout << "             Pertemuan 8             " << endl;
     cout << "#####################################" << endl;
 
     cout << "(1) Penjumlahan" << endl;
