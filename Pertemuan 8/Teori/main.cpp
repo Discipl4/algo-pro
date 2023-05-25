@@ -15,10 +15,12 @@ using namespace std;
 void title();
 void space();
 void clear();
-int penjumlahan(int num);
-int pengurangan(int num);
-int perkalian(int num);
-int pembagian(int num);
+void input(int &a, int &b);
+void inputOne(int &num);
+int penjumlahan(int a, int b);
+int pengurangan(int a, int b);
+int perkalian(int a, int b);
+int pembagian(int a, int b);
 int pangkat(int base, int expo);
 int faktorial(int num);
 int fibonacci(int num);
@@ -99,61 +101,79 @@ void clear()
     #endif
 }
 
-void input(int &num)
+void input(int &a, int &b)
+{
+    cout << "Masukkan angka pertama : ";
+    cin >> a;
+    cout << "Masukkan angka kedua : ";
+    cin >> b;
+}
+
+void inputOne(int &num)
 {
     cout << "Masukkan angka : ";
     cin >> num;
 }
 
-int penjumlahan(int num)
+int penjumlahan(int a, int b)
 {
-    if (num <= 1)
+    if (a > 0)
     {
-        return num;
+        return 1 + penjumlahan(a - 1, b);
+    }
+
+    else if (b > 0)
+    {
+        return 1 + penjumlahan(a, b - 1);
     }
 
     else
     {
-        return num + penjumlahan(num - 1);
+        return 0;
     }
 }
 
-int pengurangan(int num)
+int pengurangan(int a, int b)
 {
-    if (num <= 1)
+    if (a > b)
     {
-        return num;
+        return 1 + pengurangan(a - 1, b);
+    }
+
+    else if (b > a)
+    {
+        return pengurangan(a, b - 1) - 1;
     }
 
     else
     {
-        return num - pengurangan(num - 1);
+        return 0;
     }
 }
 
-int perkalian(int num)
+int perkalian(int a, int b)
 {
-    if (num == 0)
+    if (b > 0)
+    {
+        return a + perkalian(a, b - 1);
+    }
+
+    else
+    {
+        return 0;
+    }
+}
+
+int pembagian(int a, int b)
+{
+    if (a > b)
+    {
+        return 1 + pembagian(a - b, b);
+    }
+
+    else
     {
         return 1;
-    }
-
-    else
-    {
-        return num * perkalian(num - 1);
-    }
-}
-
-int pembagian(int num)
-{
-    if (num == 0)
-    {
-        return 1;
-    }
-
-    else
-    {
-        return num / pembagian(num - 1);
     }
 }
 
@@ -236,30 +256,32 @@ void fibonacciDetailed(int num)
 
 void choice(int num)
 {
+    int a, b;
+
     switch (num)
     {
         case 1:
-            input(num);
-            cout << "Penjumlahan " << num << " = " << penjumlahan(num) << endl;
+            input(a, b);
+            cout << a << " + " << b << " = " << penjumlahan(a, b) << endl;
             break;
 
         case 2:
-            input(num);
-            cout << "Pengurangan " << num << " = " << pengurangan(num) << endl;
+            input(a, b);
+            cout << a << " - " << b << " = " << pengurangan(a, b) << endl;
             break;
 
         case 3:
-            input(num);
-            cout << "Perkalian " << num << " = " << perkalian(num) << endl;
+            input(a, b);
+            cout << a << " x " << b << " = " << perkalian(a, b) << endl;
             break;
 
         case 4:
-            input(num);
-            cout << "Pembagian " << num << " = " << pembagian(num) << endl;
+            input(a, b);
+            cout << a << " / " << b << " = " << pembagian(a, b) << endl;
             break;
 
         case 5:
-            input(num);
+            inputOne(num);
             cout << "F" << num << " = ";
 
             fibonacciDetailed(num);
@@ -268,7 +290,7 @@ void choice(int num)
             break;
 
         case 6:
-            input(num);
+            inputOne(num);
             cout << num << "! = " << faktorial(num) << endl;
             break;
 
